@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+{#include main css file#}
+{% block css %}
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+{% endblock %}
+{#block main content#}
+{% block content %}
+    <div class="home-title-container">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+    </div>
+    <div class="container">
+        <form
+            class="form"
+            action="/register"
+            method="POST"
+        >
+            <div>
+                <fieldset class="username-password-field">
+                    <legend>Username and Password</legend>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="required-input" placeholder="username" required="true">
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="required-input" placeholder="password" required="true" minlength="12" maxlength="12">
+                    <br>
+                    <label for="password-confirmation">Confirm Password</label>
+                    <input type="password" id="password-confirmation" name="password-confirmation" class="required-input" placeholder="confirm password" required="true" minlength="12" maxlength="12">
+                    <br>
+                    <span id="password-message"></span>
+                    <br>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset class="personal-info-field">
+                    <legend>Personal Information</legend>
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" class="required-input" placeholder="first name" required="true">
+                    <br>
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" class="required-input" placeholder="last name" required="true">
+                    <br>
+                    <label for="favorite-color">Favorite Color</label>
+                    <input type="color" id="favorite-color" name="favorite-color" class="required-input" required="true">
+                    <br>
+                    <div>
+                        <label for="favorite-animal">Favorite Animal</label>
+                        <select id="favorite-animal" name="favorite-animal" class="required-input">
+                            {% for opt in favorite_animals %}
+                                <option value="{{ opt.value }}">{{ opt.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <span id="animal-message"></span>
+                    </div>
+                    <br>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset class="physics-info-field">
+                    <legend>Physics Preferences</legend>
+                    <div>
+                        <p>Please Select Your Area of Study</p>
+                        <div>
+                            <input type="radio" id="nuclear-energy" name="area-of-study" value="nuclear-energy" checked>
+                            <label for="nuclear-energy">Nuclear Energy</label>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="radio" id="quantum-mechanics" name="area-of-study" value="quantum-mechanics">
+                            <label for="quantum-mechanics">Quantum Mechanics</label>
+                        </div>
+                        <br>
+                        <div>
+                            <input type="radio" id="special-relativity" name="area-of-study" value="special-relativity">
+                            <label for="special-relativity">Special Relativity</label>
+                        </div>
+                        <br>
+                    </div>
+                    <div>
+                        <label for="years-of-study">Years of Study</label>
+                        <select id="years-of-study" name="years-of-study" class="required-input">
+                            {% for opt in years_exp %}
+                                <option value="{{ opt.value }}">{{ opt.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <span id="study-message"></span>
+                        <br>
+                    </div>
+                </fieldset>
+            </div>
+            <div>
+                <fieldset>
+                    <legend>Confirm Registration</legend>
+                    <input type="submit" id="register-submit" value="Submit">
+                </fieldset>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{#include javascript for editing time and countdown#}
+{% block js %}
+    <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='js/register.js') }}"
+    ></script>
+{% endblock %}

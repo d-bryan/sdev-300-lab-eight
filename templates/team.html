@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{#include main css file#}
+{% block css %}
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+{% endblock %}
+{#block main content#}
+{% block content %}
+    <div class="home-title-container">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="container">
+        <div class="speakers-container">
+            {#loop through and add team list#}
+            {% for item in team_list %}
+                <section class="section">
+                    <img
+                        class="home-img-profile"
+                        src="{{ item.picture }}"
+                        alt="{{ item.name.first }} {{ item.name.last }}"
+                    >
+                    <ul class="team-description">
+                        <li><strong>Name:</strong> {{ item.name.first }} {{ item.name.last }}</li>
+                        <li><strong>Email:</strong> {{ item.email }}</li>
+                        <li><strong>Phone:</strong> {{ item.phone }}</li>
+                    </ul>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{#javascript file for later usage#}
+{% block js %}
+    <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='js/home.js') }}"
+    ></script>
+{% endblock %}

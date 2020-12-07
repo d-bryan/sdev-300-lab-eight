@@ -1,0 +1,280 @@
+/************************************************
+ File: styles.css
+ Author: Dylan Bryan
+ Date: 11/22/20, 1:29 PM
+ Project: Lab-6
+ Purpose: Stylesheet to bring life to the project
+ ************************************************/
+
+/************************************************
+GLOBAL ADJUSTMENTS
+************************************************/
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+#body {
+    height: calc(100vh - 139px);
+}
+
+/************************************************
+NAVIGATION
+************************************************/
+
+.nav-header {
+    background-color: steelblue;
+    padding: 3rem;
+    margin-top: -1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    box-shadow: 5px 8px 8px 6px #2d2c2c;
+}
+
+.nav-btn {
+    background-color: dimgray;
+    color: coral;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: 300;
+    font-size: 16px;
+    margin-right: 1rem;
+}
+
+.nav-btn:hover {
+    opacity: 0.75;
+    box-shadow: 2px 2px coral;
+    cursor: pointer;
+}
+
+.nav-btn a {
+    text-decoration: none;
+    color: crimson;
+}
+
+.nav-btn a:hover,
+.nav-btn a:active {
+    color: white;
+}
+
+/************************************************
+CONTAINER FLEX PROPERTIES
+************************************************/
+
+.container {
+    width: 100%;
+    margin: 3rem auto;
+}
+
+.topics-container,
+.speakers-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.container > * {
+    padding: 1.5rem;
+}
+
+.section {
+    flex: 1 30%;
+    order: 1;
+    text-align: center;
+}
+
+/************************************************
+FLASH PROPERTIES
+************************************************/
+
+.flash-message-container {
+    text-align: center;
+    margin: 1.5rem auto;
+    padding-top: .5rem;
+    /*padding-bottom: .25rem;*/
+}
+
+.flashes {
+    color: red;
+    opacity: 0.85;
+    font-size: 1.75rem;
+    list-style-type: none;
+}
+
+
+/************************************************
+HOME PAGE EDITS
+************************************************/
+
+.home-img,
+.home-img-profile {
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.home-img {
+    width: 80%;
+    height: 80%;
+}
+
+.home-img-profile {
+    width: 60%;
+    height: 60%;
+}
+
+.home-title-container,
+.home-speakers-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-title-container h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.home-title-container p {
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+.home-speakers-container {
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.speakers-container p {
+    font-size: 1.5rem;
+}
+
+.section a:active,
+.section a:hover {
+    opacity: 0.75;
+    box-shadow: 2px 2px coral;
+}
+
+.section img:hover {
+    box-shadow: 2px 2px coral;
+    cursor: pointer;
+}
+
+.date-container {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/************************************************
+ABOUT PAGE STYLES
+************************************************/
+
+.mission-container {
+    width: 100%;
+    text-align: center;
+}
+
+.mission-list {
+    font-weight: 300;
+    font-size: 1.5rem;
+    list-style-position: inside;
+}
+
+.mission-list li {
+    font-size: 2rem;
+    padding: 1.5rem 0;
+}
+
+/************************************************
+TEAM PAGE STYLES
+************************************************/
+
+.team-description {
+    list-style-type: none;
+}
+
+/************************************************
+REGISTRATION PAGE STYLES
+************************************************/
+
+.form label,
+.form input,
+.form select {
+    margin-bottom: 10px;
+}
+
+.form {
+    width: 50%;
+    margin: auto;
+    font-size: 1.25rem;
+}
+
+.form input[type="text"],
+.form input[type="password"],
+.form select {
+    padding: 5px 50px 5px 5px;
+    border-radius: 5px;
+    background-color: dimgrey;
+    color: aliceblue;
+}
+
+.form input[type="text"]::placeholder,
+.form input[type="password"]::placeholder {
+    color: aliceblue;
+    opacity: .8;
+}
+
+.form input[type="submit"] {
+    margin-left: 2rem;
+    border-radius: 5px;
+    padding: 5px 20px;
+}
+
+.form label {
+    padding-right: .5rem;
+    /*font-size: 1.5rem;*/
+}
+
+/************************************************
+USER PROFILE PAGE STYLES
+************************************************/
+
+.profile-table-container {
+    width: 50%;
+    margin: auto;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+}
+
+.profile-table-container table {
+    margin: auto;
+    background-color: dimgrey;
+    padding: 1.5rem;
+    border-radius: 10px;
+    line-height: 2.25rem;
+}
+
+.profile-table-container thead {
+    color: white;
+    border-radius: 10px;
+}
+
+.profile-table-container table td {
+    padding-right: 2.5rem;
+}
+
+.profile-table-container thead {
+    padding-bottom: .5rem;
+    font-size: 1.85rem;
+
+}
+
+.profile-table-container tbody {
+    margin: 1.5rem 0rem;
+
+}
+
+.profile-table-container tbody tr {
+    padding-bottom: 1.75rem;
+    margin-bottom: 4.5rem;
+}

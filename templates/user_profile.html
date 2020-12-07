@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{#include main css file#}
+{% block css %}
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+{% endblock %}
+{#block main content#}
+{% block content %}
+    <div class="home-title-container">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+    </div>
+    <div class="profile-table-container">
+        <table>
+            <thead>
+                <tr>
+                    <td>Category</td>
+                    <td>Data</td>
+                    <td>Date Created</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in table_info %}
+                    <tr>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.body }}</td>
+                        <td class="date-created"></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block js %}
+    <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='js/userProfile.js') }}"
+    ></script>
+{% endblock %}

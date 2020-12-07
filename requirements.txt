@@ -1,0 +1,4 @@
+Flask~=1.1.2
+requests~=2.25.0
+passlib~=1.7.4
+MarkupSafe~=1.1.1

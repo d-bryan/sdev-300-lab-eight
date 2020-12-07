@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{#include main css file#}
+{% block css %}
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+{% endblock %}
+{#block main content#}
+{% block content %}
+    <div class="home-title-container">
+        <h1>{{ title }}</h1>
+        <p>{{ description }}</p>
+    </div>
+    <div class="date-container">
+        <section id="event-date">
+            <p>Event Date: {{ event_date }}</p>
+        </section>
+        <section class="countdown-container">
+            <p>Time left until event starts: <span id="countdown"></span></p>
+        </section>
+    </div>
+    <div class="container">
+        <div class="topics-container">
+            {#loop through and add topics section#}
+            {% for item in home_page_list %}
+                <section class="section">
+                    <h2 class="main-sub-heading">{{ item.topic }}</h2>
+                    <a href="{{ item.link }}" target="_blank">
+                        <img
+                            class="home-img"
+                            src="{{ item.img }}" alt="{{ item.alt_desc }}"
+                        >
+                    </a>
+                </section>
+            {% endfor %}
+        </div>
+        <div class="home-speakers-container">
+            <h3>Conference Speakers</h3>
+        </div>
+        <div class="speakers-container">
+            {#loop through and add speakers section#}
+            {% for item in top_speakers %}
+                <section class="section">
+                    <img
+                        class="home-img-profile"
+                        src="{{ item.picture }}"
+                        alt="{{ item.name.first }} {{ item.name.last }}"
+                    >
+                    <p>{{ item.name.first }} {{ item.name.last }}</p>
+                    <p>Professor at: {{ item.tenure_at }} State</p>
+                </section>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{#include javascript for editing time and countdown#}
+{% block js %}
+    <script
+        type="text/javascript"
+        src="{{ url_for('static', filename='js/home.js') }}"
+    ></script>
+{% endblock %}

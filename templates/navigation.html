@@ -1,0 +1,9 @@
+<header class="nav-header">
+    <nav class="nav">
+        {% for item in nav %}
+          <a href="{{ item.url }}">
+              <button class="nav-btn">{{ item.name }}</button>
+          </a>
+        {% endfor %}
+    </nav>
+</header>

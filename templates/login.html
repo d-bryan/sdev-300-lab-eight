@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{#include main css file#}
+{% block css %}
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+{% endblock %}
+{#block main content#}
+{% block content %}
+    <div class="home-title-container">
+        <h1>{{ title }}</h1>
+    </div>
+    <div class="container">
+        <form
+            class="form"
+            action="/login"
+            method="POST"
+        >
+            <div>
+                <fieldset>
+                    <legend>Username and Password</legend>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="required-input" placeholder="username" required="true">
+                    <br>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="required-input" placeholder="password" required="true">
+                    <br>
+                    <input type="submit" id="login-btn" value="Login">
+                </fieldset>
+            </div>
+        </form>
+    </div>
+{% endblock %}
