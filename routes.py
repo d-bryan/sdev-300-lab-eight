@@ -618,7 +618,7 @@ def update_password():
             password = req.form.get('password')
             confirmed_password = req.form.get('confirm-password')
             # compare the user password to list and regex
-            if confirm_updated_password(password):
+            if confirm_updated_password(password) is not None:
                 # update and hash passwords
                 updated_passwords = hash_and_verify_password(password, confirmed_password)
                 # set the new passwords
@@ -636,7 +636,12 @@ def update_password():
                 # else:  # otherwise user does not exist
                 #     flash("Username Does Not Exist", category="message")
             else:  # otherwise password needs to be corrected
-                flash("Password is NOT Strong enough.", category="message")
+                flash("Must have 12 characters in length, 1 lower, upper case, number and special character",
+                      category="message")
+                return render_template('update-password.html',
+                                       nav=nav,
+                                       favicon=favicon,
+                                       title="Update Your Password")
 
         # otherwise render the form
         elif req.method == "GET":
