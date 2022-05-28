@@ -305,7 +305,7 @@ def home():
          'link': 'https://en.wikipedia.org/wiki/Special_relativity'}
     ]
     # create a date time object for when even is
-    event_date = datetime.datetime(2020, 12, 18)  # December 12th, 2020
+    event_date = datetime.datetime(2023, 12, 18)  # December 12th, 2020
     event_date = "{}/{}/{}".format(event_date.month,
                                    event_date.day,
                                    event_date.year)

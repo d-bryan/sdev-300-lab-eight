@@ -9,8 +9,9 @@
 
 // ensure the script only starts after all the content on the page loads
 document.addEventListener("DOMContentLoaded", () => {
+    const currentEventDate = document.getElementById('current-event-date');
     const timerSpan = document.getElementById('countdown');
-    const deadline = new Date("Dec 18, 2020 12:00:00").getTime();
+    const deadline = new Date(`${currentEventDate.textContent} 12:00:00`).getTime();
 
     /**
      * Sets the time remaining until the event starts and changes
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (t < 0) {
             clearInterval(interval);
             timerSpan.innerHTML = "The Event Has Started! Woo Hoo!"
-        }; // end if statement
+        } // end if statement
     } // end changeTime function
 
     // call the function
